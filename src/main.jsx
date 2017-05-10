@@ -1,5 +1,5 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var List = require('./components/List.jsx');
+var Box = require('./components/boxes/Box.jsx');
 
-ReactDOM.render(<List />, document.getElementById('main'));
+ReactDOM.render(<Box />, document.getElementById('main'));

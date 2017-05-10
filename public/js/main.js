@@ -20804,25 +20804,77 @@ module.exports = require('./lib/React');
 },{"./lib/React":158}],182:[function(require,module,exports){
 var React = require('react');
 
-var List = React.createClass({
-    displayName: 'List',
-
-    render: function () {
-        return React.createElement(
-            'div',
-            null,
-            'HI'
-        );
+class InputItem extends React.Component {
+    render() {
+        return React.createElement("input", { type: "textbox" });
     }
-});
+};
 
-module.exports = List;
+module.exports = InputItem;
 
 },{"react":181}],183:[function(require,module,exports){
+
+},{}],184:[function(require,module,exports){
+var React = require('react');
+var InputBox = require('../boxes/InputBox.jsx');
+var ResultBox = require('../boxes/ResultBox.jsx');
+
+class Box extends React.Component {
+    render() {
+        return React.createElement(
+            'div',
+            { className: 'container' },
+            React.createElement(InputBox, null),
+            React.createElement(ResultBox, null)
+        );
+    }
+};
+
+module.exports = Box;
+
+},{"../boxes/InputBox.jsx":185,"../boxes/ResultBox.jsx":186,"react":181}],185:[function(require,module,exports){
+var React = require('react');
+var InputItem = require('../Items/InputItem.jsx');
+
+class InputBox extends React.Component {
+
+    onClick(evt) {
+        console.log(`Evento onClick ${evt.target.type}`);
+    }
+
+    render() {
+        return React.createElement(
+            'div',
+            { className: 'row' },
+            React.createElement(InputItem, null),
+            React.createElement(
+                'button',
+                { onClick: this.onClick },
+                'Add'
+            )
+        );
+    }
+};
+
+module.exports = InputBox;
+
+},{"../Items/InputItem.jsx":182,"react":181}],186:[function(require,module,exports){
+var React = require('react');
+var ResultItem = require('../Items/ResultItem.jsx');
+
+class ResultBox extends React.Component {
+    render() {
+        return React.createElement('div', { className: 'row' });
+    }
+};
+
+module.exports = ResultBox;
+
+},{"../Items/ResultItem.jsx":183,"react":181}],187:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
-var List = require('./components/List.jsx');
+var Box = require('./components/boxes/Box.jsx');
 
-ReactDOM.render(React.createElement(List, null), document.getElementById('main'));
+ReactDOM.render(React.createElement(Box, null), document.getElementById('main'));
 
-},{"./components/List.jsx":182,"react":181,"react-dom":30}]},{},[183]);
+},{"./components/boxes/Box.jsx":184,"react":181,"react-dom":30}]},{},[187]);
