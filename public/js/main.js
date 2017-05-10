@@ -20838,8 +20838,21 @@ var InputItem = require('../Items/InputItem.jsx');
 
 class InputBox extends React.Component {
 
+    constructor() {
+        super();
+        this.state = {
+            button_label: "Agregar"
+        };
+    }
+
     onClick(evt) {
-        console.log(`Evento onClick ${evt.target.type}`);
+        if (this.state.button_label == "Agregar") {
+            this.setState({ button_label: 'No agregar' });
+        } else if (this.state.button_label == "No agregar") {
+            this.setState({ button_label: 'Agregar' });
+        }
+
+        console.log(`Evento onClick ${JSON.stringify(this.state)}`);
     }
 
     render() {
@@ -20849,8 +20862,8 @@ class InputBox extends React.Component {
             React.createElement(InputItem, null),
             React.createElement(
                 'button',
-                { onClick: this.onClick },
-                'Add'
+                { type: 'button', onClick: this.onClick.bind(this) },
+                this.state.button_label
             )
         );
     }
