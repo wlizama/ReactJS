@@ -21,6 +21,6 @@
     "react-router": "^2.7.0",
     "reflux": "^0.4.1",
     "watchify": "^3.7.0",
-    "whatwg-fetch": "^1.0.0"
+    "whatwg-fetch": "^3.0.0"
   }
 }
